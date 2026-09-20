@@ -636,6 +636,46 @@ Los filtros avanzados se implementarán cuando construyamos el panel administrat
 
 ---
 
+# 23.2 Ventas (implementado 2026-09-20)
+
+```http
+GET /api/admin/ventas
+```
+
+Acceso:
+
+```text
+ADMIN
+```
+
+Parámetros opcionales (si se omiten, se calcula sobre todo el histórico):
+
+```http
+GET /api/admin/ventas?fechaDesde=2026-09-01&fechaHasta=2026-09-30
+```
+
+Respuesta:
+
+```json
+{
+  "totalPedidos": 12,
+  "totalVendido": 480000,
+  "pedidosPorEstado": {
+    "PENDIENTE_CONFIRMACION": 3,
+    "CONFIRMADO": 5,
+    "ENTREGADO": 3,
+    "CANCELADO": 1
+  },
+  "productosMasVendidos": [
+    { "productoId": 4, "nombre": "Mug Personalizado", "cantidadVendida": 18 }
+  ]
+}
+```
+
+Cubre las métricas que pide MUSA-002 RF-064 / MUSA-003 UC-022: total de pedidos, pedidos por estado, ventas por periodo (vía `fechaDesde`/`fechaHasta`), productos más vendidos (top 5) y total vendido. Los pedidos con estado `CANCELADO` cuentan para `totalPedidos` y `pedidosPorEstado`, pero no para `totalVendido` ni para `productosMasVendidos` — un pedido cancelado no fue una venta real.
+
+---
+
 # 24. Autenticación
 
 ## Registro
