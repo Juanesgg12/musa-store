@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Musa Creativa — Productos personalizados</title>
+
+  <!-- "Baloo 2" es un reemplazo temporal de la fuente de marca "Clayful" (ver css/variables.css) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/componentes.css" />
+</head>
+<body>
+  <header class="encabezado contenedor">
+    <a href="index.html" class="logo">
+      <!-- Placeholder de texto: reemplazar por <img src="assets/logo/..."> cuando tengamos el archivo real -->
+      <span class="logo__nombre">musa</span>
+      <span class="logo__eslogan">creativa</span>
+    </a>
+    <nav class="nav-principal">
+      <ul>
+        <li><a href="#productos">Catálogo</a></li>
+        <li id="nav-cuenta"><a href="cuenta.html">Mi cuenta</a></li>
+        <li><a href="carrito.html">Carrito <span id="nav-carrito-contador"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="contenedor">
+      <h1>Regalos que cuentan tu historia</h1>
+      <p>Productos personalizados para esa persona, esa fecha, esa ocasión especial.</p>
+    </div>
+  </section>
+
+  <main class="contenedor">
+    <section class="seccion" id="catalogo">
+      <h2 class="seccion__titulo">Nuestro catálogo</h2>
+      <div class="filtro-categorias" id="categorias"></div>
+      <div id="productos"></div>
+    </section>
+  </main>
+
+  <footer class="pie-pagina">
+    <p>&copy; 2026 Musa Creativa</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+/*
+  Variables de marca Musa (colores confirmados por la diseñadora, 2026-09-18).
+  Centralizadas aquí para que el resto del CSS nunca use un hex suelto.
+*/
+
+@font-face {
+  font-family: "Clayful";
+  src: url("../assets/fonts/Clayful-Regular.woff2") format("woff2"),
+       url("../assets/fonts/Clayful-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Paleta de marca */
+  --color-morado: #7471CE;
+  --color-morado-claro: #E8C6DF;
+  --color-morado-medio: #A38EEA;
+  --color-crema: #FDF1E5;
+  --color-amarillo: #F9B846;
+  --color-naranja: #EF812A;
+
+  /* Uso semántico (para que el resto del CSS no dependa de nombres de color crudos) */
+  --color-primario: var(--color-morado);
+  --color-acento: var(--color-naranja);
+  --color-texto: #2E2A3D;
+  --color-texto-suave: #6B6580;
+  --color-fondo: #FFFFFF;
+  --color-fondo-alterno: var(--color-crema);
+  --color-borde: #EAE3F5;
+
+  /* Tipografía. "Clayful" es la fuente de marca (ver @font-face arriba);
+     mientras no tengamos el archivo real, cae a "Baloo 2" (Google Fonts,
+     también redondeada) como reemplazo visualmente cercano. */
+  --fuente-titulos: "Clayful", "Baloo 2", sans-serif;
+  --fuente-texto: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Espaciado */
+  --espacio-xs: 4px;
+  --espacio-sm: 8px;
+  --espacio-md: 16px;
+  --espacio-lg: 24px;
+  --espacio-xl: 48px;
+
+  /* Otros */
+  --radio-borde: 16px;
+  --sombra-suave: 0 4px 16px rgba(116, 113, 206, 0.18); /* = --color-morado en rgba */
+}

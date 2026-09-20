@@ -1,0 +1,11 @@
+Coloca aqui el archivo del logo de Musa (idealmente PNG con fondo transparente
+o SVG). Cuando lo tengas, en index.html reemplaza el bloque:
+
+  <div class="logo">
+    <span class="logo__nombre">musa</span>
+    <span class="logo__eslogan">creativa</span>
+  </div>
+
+por:
+
+  <img src="assets/logo/logo.png" alt="Musa Creativa" class="logo__imagen">

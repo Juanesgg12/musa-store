@@ -1,0 +1,74 @@
+/* Estilos de la página de carrito. */
+
+.lista-items-carrito {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-md);
+  margin-bottom: var(--espacio-lg);
+}
+
+.fila-carrito {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: start;
+  gap: var(--espacio-md);
+  padding: var(--espacio-md);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+}
+
+.fila-carrito__nombre {
+  font-family: var(--fuente-titulos);
+  font-size: 1.05rem;
+}
+
+.fila-carrito__detalle {
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+}
+
+.fila-carrito__personalizacion {
+  font-size: 0.8rem;
+  color: var(--color-texto-suave);
+  margin-top: var(--espacio-xs);
+}
+
+.fila-carrito__subtotal {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.carrito-total {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: right;
+  margin-bottom: var(--espacio-xl);
+}
+
+.seccion-checkout {
+  border-top: 1px solid var(--color-borde);
+  padding-top: var(--espacio-xl);
+}
+
+.grupo-campos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-md);
+}
+
+.boton-whatsapp {
+  display: inline-block;
+  margin-top: var(--espacio-sm);
+  background-color: #25D366; /* verde reconocible de WhatsApp, no es color de marca Musa */
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .fila-carrito {
+    grid-template-columns: 1fr;
+  }
+
+  .grupo-campos {
+    grid-template-columns: 1fr;
+  }
+}

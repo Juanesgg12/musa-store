@@ -1,0 +1,99 @@
+/* Estilos de la página de cuenta (login / registro). */
+
+.tarjeta-auth {
+  max-width: 420px;
+  margin-inline: auto;
+  padding: var(--espacio-xl) var(--espacio-lg);
+}
+
+.tabs-auth {
+  display: flex;
+  border-bottom: 1px solid var(--color-borde);
+  margin-bottom: var(--espacio-lg);
+}
+
+.tab-auth {
+  flex: 1;
+  padding-block: var(--espacio-sm);
+  background: none;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+  border-bottom: 2px solid transparent;
+}
+
+.tab-auth.activa {
+  color: var(--color-primario);
+  border-bottom-color: var(--color-primario);
+}
+
+.formulario-auth {
+  display: none;
+  flex-direction: column;
+  gap: var(--espacio-md);
+}
+
+.formulario-auth.visible {
+  display: flex;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+}
+
+.campo label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-texto);
+}
+
+.campo input,
+.campo select {
+  padding: var(--espacio-sm) var(--espacio-md);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: var(--color-fondo);
+}
+
+.campo input:focus,
+.campo select:focus {
+  outline: 2px solid var(--color-primario);
+  outline-offset: 1px;
+}
+
+.boton-primario {
+  padding: var(--espacio-sm) var(--espacio-md);
+  border-radius: var(--radio-borde);
+  background-color: var(--color-primario);
+  color: var(--color-fondo);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.boton-primario:hover {
+  opacity: 0.9;
+}
+
+.boton-primario:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.mensaje-formulario {
+  font-size: 0.9rem;
+  padding: var(--espacio-sm);
+  border-radius: var(--radio-borde);
+}
+
+.mensaje-formulario--error {
+  background-color: #FBE4E0;
+  color: #A6412C;
+}
+
+.mensaje-formulario--exito {
+  background-color: #E4F3E5;
+  color: #2E7D32;
+}

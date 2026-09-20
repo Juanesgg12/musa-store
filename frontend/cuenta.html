@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi cuenta — Musa Creativa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/componentes.css" />
+  <link rel="stylesheet" href="css/formularios.css" />
+</head>
+<body>
+  <header class="encabezado contenedor">
+    <a href="index.html" class="logo">
+      <span class="logo__nombre">musa</span>
+      <span class="logo__eslogan">creativa</span>
+    </a>
+    <nav class="nav-principal">
+      <ul>
+        <li><a href="index.html#productos">Catálogo</a></li>
+        <li id="nav-cuenta"><a href="cuenta.html">Mi cuenta</a></li>
+        <li><a href="carrito.html">Carrito <span id="nav-carrito-contador"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+    <div class="tarjeta-auth">
+      <div class="tabs-auth">
+        <button type="button" class="tab-auth activa" data-tab="login">Iniciar sesión</button>
+        <button type="button" class="tab-auth" data-tab="registro">Crear cuenta</button>
+      </div>
+
+      <div id="mensaje-auth"></div>
+
+      <form id="form-login" class="formulario-auth visible">
+        <div class="campo">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" name="email" required autocomplete="email" />
+        </div>
+        <div class="campo">
+          <label for="login-password">Contraseña</label>
+          <input type="password" id="login-password" name="password" required autocomplete="current-password" />
+        </div>
+        <button type="submit" class="boton-primario">Iniciar sesión</button>
+      </form>
+
+      <form id="form-registro" class="formulario-auth">
+        <div class="campo">
+          <label for="registro-nombre">Nombre</label>
+          <input type="text" id="registro-nombre" name="nombre" required autocomplete="given-name" />
+        </div>
+        <div class="campo">
+          <label for="registro-apellido">Apellido</label>
+          <input type="text" id="registro-apellido" name="apellido" required autocomplete="family-name" />
+        </div>
+        <div class="campo">
+          <label for="registro-email">Email</label>
+          <input type="email" id="registro-email" name="email" required autocomplete="email" />
+        </div>
+        <div class="campo">
+          <label for="registro-telefono">Teléfono (opcional)</label>
+          <input type="tel" id="registro-telefono" name="telefono" autocomplete="tel" />
+        </div>
+        <div class="campo">
+          <label for="registro-password">Contraseña</label>
+          <input type="password" id="registro-password" name="password" required minlength="8" autocomplete="new-password" />
+        </div>
+        <button type="submit" class="boton-primario">Crear cuenta</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="pie-pagina">
+    <p>&copy; 2026 Musa Creativa</p>
+  </footer>
+
+  <script type="module" src="js/main-cuenta.js"></script>
+</body>
+</html>

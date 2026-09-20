@@ -1,0 +1,7 @@
+Coloca aqui el archivo de la fuente "Clayful Regular" con estos nombres exactos
+(o ajusta las rutas en css/variables.css si el archivo se llama distinto):
+
+  Clayful-Regular.woff2
+  Clayful-Regular.otf
+
+Mientras no esten, la pagina usa "Baloo 2" (Google Fonts) como reemplazo visual.
