@@ -63,8 +63,9 @@ export function crearPedido(datos) {
   return solicitarConJson("/pedidos", "POST", datos);
 }
 
-// DELETE no manda cuerpo, pero sí necesita el token (son endpoints ADMIN).
-function solicitarAutenticadoSinCuerpo(ruta, metodo) {
+// Para GET/DELETE: no mandan cuerpo, pero sí necesitan el token (endpoints
+// que requieren estar autenticado, como los de ADMIN o "mis pedidos").
+function solicitarAutenticadoSinCuerpo(ruta, metodo = "GET") {
   const headers = {};
   const token = obtenerToken();
   if (token) {
@@ -95,4 +96,16 @@ export function actualizarCategoria(id, datos) {
 
 export function eliminarCategoria(id) {
   return solicitarAutenticadoSinCuerpo(`/categorias/${id}`, "DELETE");
+}
+
+export function obtenerPedidosAdmin() {
+  return solicitarAutenticadoSinCuerpo("/admin/pedidos");
+}
+
+export function obtenerPedidoPorId(id) {
+  return solicitarAutenticadoSinCuerpo(`/pedidos/${id}`);
+}
+
+export function actualizarEstadoPedido(id, estado) {
+  return solicitarConJson(`/pedidos/${id}/estado`, "PUT", { estado });
 }

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedidos — Panel Musa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/formularios.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <p class="admin-sidebar__titulo">Musa Admin</p>
+      <a href="productos.html">Productos</a>
+      <a href="categorias.html">Categorías</a>
+      <a href="pedidos.html" class="activa">Pedidos</a>
+      <div class="admin-sidebar__separador"></div>
+      <a href="../index.html">Volver a la tienda</a>
+      <button type="button" id="btn-cerrar-sesion">Cerrar sesión</button>
+    </aside>
+
+    <main class="admin-contenido">
+      <div class="admin-encabezado">
+        <h1>Pedidos</h1>
+      </div>
+
+      <div class="admin-panel-formulario" id="panel-detalle">
+        <h2>Pedido <span id="detalle-codigo"></span></h2>
+
+        <div id="detalle-cuerpo"></div>
+
+        <div class="campo">
+          <label for="detalle-estado">Estado</label>
+          <select id="detalle-estado">
+            <option value="PENDIENTE_CONFIRMACION">Pendiente de confirmación</option>
+            <option value="CONFIRMADO">Confirmado</option>
+            <option value="EN_PREPARACION">En preparación</option>
+            <option value="LISTO">Listo</option>
+            <option value="ENVIADO">Enviado</option>
+            <option value="ENTREGADO">Entregado</option>
+            <option value="CANCELADO">Cancelado</option>
+          </select>
+        </div>
+
+        <div id="mensaje-detalle"></div>
+
+        <div class="admin-panel-formulario__acciones">
+          <button type="button" id="btn-guardar-estado" class="boton-primario">Guardar estado</button>
+          <button type="button" id="btn-cerrar-detalle" class="boton-enlace">Cerrar</button>
+        </div>
+      </div>
+
+      <div id="mensaje-pedidos"></div>
+
+      <div class="admin-tabla-contenedor">
+        <table class="admin-tabla">
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Estado</th>
+              <th>Total</th>
+              <th>Fecha</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-pedidos-cuerpo"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../js/main-admin-pedidos.js"></script>
+</body>
+</html>
