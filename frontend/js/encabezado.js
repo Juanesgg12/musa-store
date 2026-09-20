@@ -45,6 +45,12 @@ function pintarCuenta() {
     pintarEncabezado();
   });
 
+  const enlacePedidos = document.createElement("a");
+  enlacePedidos.href = "mis-pedidos.html";
+  enlacePedidos.className = "nav-saludo";
+  enlacePedidos.textContent = "Mis pedidos";
+  contenedor.append(enlacePedidos);
+
   if (usuario.rol === "ADMIN") {
     const enlaceAdmin = document.createElement("a");
     enlaceAdmin.href = "admin/productos.html";

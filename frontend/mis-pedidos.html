@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mis pedidos — Musa Creativa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/componentes.css" />
+  <link rel="stylesheet" href="css/formularios.css" />
+  <link rel="stylesheet" href="css/pedidos.css" />
+</head>
+<body>
+  <header class="encabezado contenedor">
+    <a href="index.html" class="logo">
+      <span class="logo__nombre">musa</span>
+      <span class="logo__eslogan">creativa</span>
+    </a>
+    <nav class="nav-principal">
+      <ul>
+        <li><a href="index.html#productos">Catálogo</a></li>
+        <li id="nav-cuenta"><a href="cuenta.html">Mi cuenta</a></li>
+        <li><a href="carrito.html">Carrito <span id="nav-carrito-contador"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+    <section class="seccion">
+      <h1 class="seccion__titulo">Mis pedidos</h1>
+      <div id="lista-mis-pedidos"></div>
+    </section>
+  </main>
+
+  <footer class="pie-pagina">
+    <p>&copy; 2026 Musa Creativa</p>
+  </footer>
+
+  <script type="module" src="js/main-mis-pedidos.js"></script>
+</body>
+</html>

@@ -106,6 +106,10 @@ export function obtenerPedidoPorId(id) {
   return solicitarAutenticadoSinCuerpo(`/pedidos/${id}`);
 }
 
+export function obtenerMisPedidos() {
+  return solicitarAutenticadoSinCuerpo("/pedidos/mis-pedidos");
+}
+
 export function actualizarEstadoPedido(id, estado) {
   return solicitarConJson(`/pedidos/${id}/estado`, "PUT", { estado });
 }

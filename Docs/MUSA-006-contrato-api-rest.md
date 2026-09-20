@@ -539,8 +539,6 @@ Un cliente no podrá consultar pedidos de otro cliente.
 
 # 20. Pedidos del cliente
 
-Posteriormente:
-
 ```http
 GET /api/pedidos/mis-pedidos
 ```
@@ -556,6 +554,8 @@ Respuesta:
 ```text
 200 OK
 ```
+
+**Implementado (2026-09-20)**: `frontend/mis-pedidos.html` — lista los pedidos del cliente (forma resumida, sin items), cada uno expandible para ver el detalle completo (`GET /api/pedidos/{id}`, pedido solo la primera vez que se expande, no de una vez para todos). Enlace "Mis pedidos" visible en el header para cualquier usuario logueado (CLIENTE o ADMIN — el endpoint no está restringido a CLIENTE en el backend, cualquier autenticado ve sus propios pedidos).
 
 ---
 
