@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categorías — Panel Musa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/formularios.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <p class="admin-sidebar__titulo">Musa Admin</p>
+      <a href="productos.html">Productos</a>
+      <a href="categorias.html" class="activa">Categorías</a>
+      <div class="admin-sidebar__separador"></div>
+      <a href="../index.html">Volver a la tienda</a>
+      <button type="button" id="btn-cerrar-sesion">Cerrar sesión</button>
+    </aside>
+
+    <main class="admin-contenido">
+      <div class="admin-encabezado">
+        <h1>Categorías</h1>
+        <button type="button" id="btn-nueva" class="boton-primario">Nueva categoría</button>
+      </div>
+
+      <div class="admin-panel-formulario" id="panel-formulario">
+        <h2 id="titulo-formulario">Nueva categoría</h2>
+        <form id="form-categoria">
+          <input type="hidden" id="categoria-id" />
+          <div class="campo">
+            <label for="categoria-nombre">Nombre</label>
+            <input type="text" id="categoria-nombre" name="nombre" required />
+          </div>
+          <div class="campo">
+            <label for="categoria-descripcion">Descripción</label>
+            <input type="text" id="categoria-descripcion" name="descripcion" />
+          </div>
+          <div class="campo">
+            <label for="categoria-imagen">URL de imagen (opcional)</label>
+            <input type="text" id="categoria-imagen" name="imagen" />
+          </div>
+          <div class="campo campo-checkbox">
+            <input type="checkbox" id="categoria-activo" name="activo" checked />
+            <label for="categoria-activo">Activa</label>
+          </div>
+
+          <div id="mensaje-formulario-categoria"></div>
+
+          <div class="admin-panel-formulario__acciones">
+            <button type="submit" class="boton-primario">Guardar</button>
+            <button type="button" id="btn-cancelar" class="boton-enlace">Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="mensaje-categorias"></div>
+
+      <div class="admin-tabla-contenedor">
+        <table class="admin-tabla">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-categorias-cuerpo"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../js/main-admin-categorias.js"></script>
+</body>
+</html>

@@ -62,3 +62,37 @@ export function registrar(datos) {
 export function crearPedido(datos) {
   return solicitarConJson("/pedidos", "POST", datos);
 }
+
+// DELETE no manda cuerpo, pero sí necesita el token (son endpoints ADMIN).
+function solicitarAutenticadoSinCuerpo(ruta, metodo) {
+  const headers = {};
+  const token = obtenerToken();
+  if (token) {
+    headers["Authorization"] = `Bearer ${token}`;
+  }
+  return solicitar(ruta, { method: metodo, headers });
+}
+
+export function crearProducto(datos) {
+  return solicitarConJson("/productos", "POST", datos);
+}
+
+export function actualizarProducto(id, datos) {
+  return solicitarConJson(`/productos/${id}`, "PUT", datos);
+}
+
+export function eliminarProducto(id) {
+  return solicitarAutenticadoSinCuerpo(`/productos/${id}`, "DELETE");
+}
+
+export function crearCategoria(datos) {
+  return solicitarConJson("/categorias", "POST", datos);
+}
+
+export function actualizarCategoria(id, datos) {
+  return solicitarConJson(`/categorias/${id}`, "PUT", datos);
+}
+
+export function eliminarCategoria(id) {
+  return solicitarAutenticadoSinCuerpo(`/categorias/${id}`, "DELETE");
+}

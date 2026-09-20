@@ -1,0 +1,135 @@
+/* Layout y componentes del panel de administración. */
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  background-color: var(--color-texto);
+  color: var(--color-fondo);
+  padding: var(--espacio-lg) var(--espacio-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+}
+
+.admin-sidebar__titulo {
+  font-family: var(--fuente-titulos);
+  font-size: 1.3rem;
+  margin-bottom: var(--espacio-lg);
+  color: var(--color-fondo);
+}
+
+.admin-sidebar a,
+.admin-sidebar button {
+  padding: var(--espacio-sm);
+  border-radius: var(--radio-borde);
+  color: var(--color-fondo);
+  background: none;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.admin-sidebar a:hover,
+.admin-sidebar a.activa {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.admin-sidebar__separador {
+  flex: 1;
+}
+
+.admin-contenido {
+  padding: var(--espacio-xl);
+}
+
+.admin-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--espacio-lg);
+}
+
+.admin-tabla-contenedor {
+  overflow-x: auto;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+}
+
+.admin-tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-tabla th,
+.admin-tabla td {
+  text-align: left;
+  padding: var(--espacio-sm) var(--espacio-md);
+  border-bottom: 1px solid var(--color-borde);
+  white-space: nowrap;
+}
+
+.admin-tabla th {
+  background-color: var(--color-fondo-alterno);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.admin-tabla tr:last-child td {
+  border-bottom: none;
+}
+
+.insignia-estado {
+  padding: 2px var(--espacio-sm);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.insignia-estado--activo {
+  background-color: #E4F3E5;
+  color: #2E7D32;
+}
+
+.insignia-estado--inactivo {
+  background-color: #F0F0F0;
+  color: var(--color-texto-suave);
+}
+
+.admin-acciones {
+  display: flex;
+  gap: var(--espacio-sm);
+}
+
+.admin-panel-formulario {
+  display: none;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  padding: var(--espacio-lg);
+  margin-bottom: var(--espacio-lg);
+  background-color: var(--color-fondo-alterno);
+}
+
+.admin-panel-formulario.visible {
+  display: block;
+}
+
+.admin-panel-formulario__acciones {
+  display: flex;
+  gap: var(--espacio-sm);
+  margin-top: var(--espacio-md);
+}
+
+.campo-checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-sm);
+  flex-direction: row !important;
+}
+
+.campo-checkbox input {
+  width: auto;
+}

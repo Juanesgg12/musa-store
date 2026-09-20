@@ -45,5 +45,13 @@ function pintarCuenta() {
     pintarEncabezado();
   });
 
+  if (usuario.rol === "ADMIN") {
+    const enlaceAdmin = document.createElement("a");
+    enlaceAdmin.href = "admin/productos.html";
+    enlaceAdmin.className = "nav-saludo";
+    enlaceAdmin.textContent = "Panel admin";
+    contenedor.append(enlaceAdmin);
+  }
+
   contenedor.append(saludo, botonSalir);
 }
