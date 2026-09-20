@@ -24,6 +24,8 @@ public class ProductoRequest {
 
     private boolean personalizable;
 
+    private boolean activo = true;
+
     @NotNull(message = "La categoría es obligatoria")
     private Long categoriaId;
 
@@ -65,6 +67,14 @@ public class ProductoRequest {
 
     public void setPersonalizable(boolean personalizable) {
         this.personalizable = personalizable;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
     public Long getCategoriaId() {

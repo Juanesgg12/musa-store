@@ -11,6 +11,8 @@ public class CategoriaRequest {
 
     private String imagen;
 
+    private boolean activo = true;
+
     public String getNombre() {
         return nombre;
     }
@@ -33,5 +35,13 @@ public class CategoriaRequest {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 }

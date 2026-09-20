@@ -214,6 +214,7 @@ ADMIN.
   "precio": 28000,
   "stock": 15,
   "personalizable": true,
+  "activo": true,
   "categoriaId": 1
 }
 ```
@@ -225,6 +226,8 @@ ADMIN.
 404 NOT FOUND
 400 BAD REQUEST
 ```
+
+**Nota (2026-09-20)**: se agregó `activo` al request de actualización (opcional, `true` por defecto). Es la única forma de **reactivar** un producto que fue desactivado — inicialmente el DTO no lo exponía y no existía manera de revertir una desactivación. Lo usa el panel de administración.
 
 ---
 
@@ -238,7 +241,7 @@ DELETE /api/productos/{id}
 
 ADMIN.
 
-Para el MVP se priorizará la desactivación lógica.
+Para el MVP se priorizará la desactivación lógica (equivalente a `PUT` con `activo: false`).
 
 ### Respuestas
 
@@ -377,6 +380,8 @@ Respuestas:
 400 BAD REQUEST
 404 NOT FOUND
 ```
+
+**Nota (2026-09-20)**: el request de actualización también acepta `activo` (opcional, `true` por defecto), igual que en Producto — es la forma de reactivar una categoría desactivada. `GET`/respuestas de categoría ahora incluyen `activo` en el cuerpo.
 
 ---
 

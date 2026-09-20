@@ -8,12 +8,14 @@ public class CategoriaResponse {
     private String nombre;
     private String descripcion;
     private String imagen;
+    private boolean activo;
 
     public CategoriaResponse(Categoria categoria) {
         this.id = categoria.getId();
         this.nombre = categoria.getNombre();
         this.descripcion = categoria.getDescripcion();
         this.imagen = categoria.getImagen();
+        this.activo = categoria.isActivo();
     }
 
     public Long getId() {
@@ -30,5 +32,9 @@ public class CategoriaResponse {
 
     public String getImagen() {
         return imagen;
+    }
+
+    public boolean isActivo() {
+        return activo;
     }
 }

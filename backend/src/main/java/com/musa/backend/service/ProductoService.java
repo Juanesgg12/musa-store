@@ -58,6 +58,7 @@ public class ProductoService {
         producto.setPrecio(request.getPrecio());
         producto.setStock(request.getStock());
         producto.setPersonalizable(request.isPersonalizable());
+        producto.setActivo(request.isActivo());
         producto.setCategoria(categoria);
 
         Producto actualizado = productoRepository.save(producto);

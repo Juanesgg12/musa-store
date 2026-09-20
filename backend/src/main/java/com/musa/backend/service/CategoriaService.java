@@ -47,6 +47,7 @@ public class CategoriaService {
         categoria.setNombre(request.getNombre());
         categoria.setDescripcion(request.getDescripcion());
         categoria.setImagen(request.getImagen());
+        categoria.setActivo(request.isActivo());
 
         Categoria actualizada = categoriaRepository.save(categoria);
         return new CategoriaResponse(actualizada);
