@@ -109,3 +109,11 @@ export function obtenerPedidoPorId(id) {
 export function actualizarEstadoPedido(id, estado) {
   return solicitarConJson(`/pedidos/${id}/estado`, "PUT", { estado });
 }
+
+export function obtenerUsuariosAdmin() {
+  return solicitarAutenticadoSinCuerpo("/usuarios");
+}
+
+export function cambiarRolUsuario(id, rol) {
+  return solicitarConJson(`/usuarios/${id}/rol`, "PUT", { rol });
+}

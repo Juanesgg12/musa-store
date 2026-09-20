@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usuarios — Panel Musa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/formularios.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <p class="admin-sidebar__titulo">Musa Admin</p>
+      <a href="productos.html">Productos</a>
+      <a href="categorias.html">Categorías</a>
+      <a href="pedidos.html">Pedidos</a>
+      <a href="usuarios.html" class="activa">Usuarios</a>
+      <div class="admin-sidebar__separador"></div>
+      <a href="../index.html">Volver a la tienda</a>
+      <button type="button" id="btn-cerrar-sesion">Cerrar sesión</button>
+    </aside>
+
+    <main class="admin-contenido">
+      <div class="admin-encabezado">
+        <h1>Usuarios</h1>
+      </div>
+
+      <div id="mensaje-usuarios"></div>
+
+      <div class="admin-tabla-contenedor">
+        <table class="admin-tabla">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Rol</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-usuarios-cuerpo"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../js/main-admin-usuarios.js"></script>
+</body>
+</html>

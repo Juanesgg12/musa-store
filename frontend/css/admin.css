@@ -101,6 +101,11 @@
   color: var(--color-texto-suave);
 }
 
+.texto-suave {
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+}
+
 .admin-acciones {
   display: flex;
   gap: var(--espacio-sm);
