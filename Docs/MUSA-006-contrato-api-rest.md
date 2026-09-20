@@ -180,9 +180,18 @@ Ejemplo:
   "stock": 10,
   "personalizable": true,
   "activo": true,
-  "categoriaId": 1
+  "categoria": {
+    "id": 1,
+    "nombre": "Mugs"
+  }
 }
 ```
+
+### Nota de implementación (2026-09-17)
+
+Todas las respuestas de `Producto` (listar, obtener por id, crear, actualizar) devuelven la categoría **anidada** (`categoria: { id, nombre }`), no `categoriaId` plano. Esto elimina la inconsistencia que existía entre la sección 4 (que ya mostraba `categoria` anidada) y esta sección. El campo `categoriaId` sigue existiendo, pero únicamente en el **request** de creación/actualización.
+
+El campo `imagenPrincipal` (sección 4) se implementará cuando se construya la entidad `ProductoImagen`; hasta entonces no aparece en las respuestas.
 
 ---
 
@@ -613,6 +622,15 @@ Los filtros avanzados se implementarán cuando construyamos el panel administrat
 
 ---
 
+# 23.1 Notas de implementación de Pedidos (2026-09-18)
+
+- **`costoEnvio` fijo en `0`** para todos los pedidos del MVP: no existe todavía una estrategia de cálculo de envío (ver MUSA-005 §18). `total = subtotal + costoEnvio` siempre por ahora.
+- **No se valida ni descarga stock al crear un pedido** (decisión explícita, pendiente para una siguiente etapa): el campo `stock` del producto no se toca al crear un pedido todavía.
+- **`GET /api/pedidos/mis-pedidos`** y **`GET /api/admin/pedidos`** devuelven la forma "resumida" del pedido (igual que la sección 18: sin los items). **`GET /api/pedidos/{id}`** sí devuelve el detalle completo, incluyendo `items` (con su `personalizacion` si la tiene).
+- El código del pedido se genera como `"MUSA-" + id` después de guardarlo (el id lo asigna la base de datos).
+
+---
+
 # 24. Autenticación
 
 ## Registro
@@ -656,7 +674,29 @@ Request:
 }
 ```
 
-La respuesta definitiva dependerá de la estrategia de autenticación seleccionada durante la implementación de seguridad.
+### Respuesta (2026-09-17: implementado con JWT)
+
+```text
+200 OK
+```
+
+```json
+{
+  "token": "eyJhbGciOiJIUzUxMiJ9...",
+  "tipo": "Bearer",
+  "usuario": {
+    "id": 1,
+    "nombre": "Juan",
+    "apellido": "Grisales",
+    "email": "juan@email.com",
+    "rol": "CLIENTE"
+  }
+}
+```
+
+El cliente debe enviar el token en cada petición protegida con el header `Authorization: Bearer <token>`. El token expira a las 24 horas. No hay endpoint de "logout" en el servidor: como es stateless, cerrar sesión es responsabilidad del cliente (descartar el token guardado).
+
+`401 UNAUTHORIZED` si el email o la contraseña son incorrectos.
 
 ---
 
@@ -692,6 +732,60 @@ ADMIN
 
 Los campos modificables se definirán durante la implementación.
 
+**Nota (2026-09-17): no implementado todavía.** Solo se implementó `GET /api/usuarios/me`.
+
+---
+
+# 27.1 Listar usuarios (implementado 2026-09-17)
+
+```http
+GET /api/usuarios
+```
+
+Acceso:
+
+```text
+ADMIN
+```
+
+Devuelve la lista completa de usuarios registrados (cumple RF de administrador "Consultar usuarios").
+
+---
+
+# 27.2 Cambiar el rol de un usuario (implementado 2026-09-17)
+
+```http
+PUT /api/usuarios/{id}/rol
+```
+
+Acceso:
+
+```text
+ADMIN
+```
+
+Request:
+
+```json
+{
+  "rol": "ADMIN"
+}
+```
+
+Respuestas:
+
+```text
+200 OK
+400 BAD REQUEST  (rol inválido — solo se aceptan CLIENTE o ADMIN)
+404 NOT FOUND    (usuario no existe)
+```
+
+Es el mecanismo para promover a un cliente existente a administrador. Requiere ya ser ADMIN para usarlo.
+
+### Cómo se crea el primer ADMIN (bootstrap)
+
+Como el endpoint anterior requiere ya ser ADMIN, el primer administrador se crea automáticamente al arrancar el backend si existen las variables de entorno `ADMIN_EMAIL` y `ADMIN_PASSWORD`, y todavía no existe un usuario con ese email. Es idempotente: en arranques posteriores no hace nada si el usuario ya existe. Ver `config/AdminBootstrapConfig`.
+
 ---
 
 # 28. Matriz de permisos
@@ -714,6 +808,8 @@ Los campos modificables se definirán durante la implementación.
 | Registro | ✅ | — | — |
 | Login | ✅ | — | — |
 | GET usuario actual | ❌ | ✅ | ✅ |
+| GET todos los usuarios | ❌ | ❌ | ✅ |
+| PUT rol de usuario | ❌ | ❌ | ✅ |
 
 ---
 
@@ -731,7 +827,7 @@ La API utilizará inicialmente una estructura consistente:
 }
 ```
 
-La implementación definitiva se realizará mediante un manejador global de excepciones en Spring Boot.
+**Implementado (2026-09-18)**: `exception/ManejadorGlobalExcepciones.java` (`@RestControllerAdvice`) centraliza este formato para toda excepción `ResponseStatusException` y para los errores de validación (`@Valid`), incluyendo siempre el campo `message`. Antes de esto, intentamos activar `server.error.include-message=always`, pero no era confiable para excepciones lanzadas desde el código de negocio — el manejador global es la solución correcta y ya no depende de ese comportamiento por defecto de Spring Boot.
 
 ---
 

@@ -498,6 +498,8 @@ El backend deberá generar o entregar la información necesaria para construir e
 
 No implementaremos inicialmente una integración completa con WhatsApp Business API.
 
+**Implementado (2026-09-20)**: `frontend/js/whatsapp.js` arma el mensaje (productos, personalización, total, datos de contacto) y genera un link `https://wa.me/<numero>?text=...`. Aparece como botón "Continuar a WhatsApp" justo después de confirmar el pedido en `carrito.html` — el envío lo hace el propio usuario al hacer clic (no hay automatización). El número de Musa vive en `frontend/js/config.js` (`WHATSAPP_NUMERO`).
+
 ---
 
 # 15. Autenticación y autorización
@@ -527,6 +529,10 @@ Conceptualmente:
 La autenticación se implementará posteriormente utilizando Spring Security.
 
 La tecnología exacta de tokens/sesiones será definida en la etapa de seguridad.
+
+### Decisión (2026-09-17)
+
+Se eligió **JWT (stateless)** sobre sesiones con cookies: es el estándar para una API REST consumida por un frontend separado (HTML/JS), no requiere que el servidor guarde estado de sesión, y evita problemas de cookies cross-origin si el frontend termina alojado en otro dominio. Implementado con la librería `jjwt`. Ver MUSA-006 sección 25 para el contrato final del login.
 
 ---
 

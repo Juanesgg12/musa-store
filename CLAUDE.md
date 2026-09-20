@@ -317,25 +317,25 @@ Documentar.
 Mejorar.
 15. Estado actual
 
-Actualmente Musa se encuentra en fase inicial de desarrollo.
+Actualizado: 2026-09-20.
 
 Completado:
 
-Definición del producto.
-Requisitos funcionales y no funcionales.
-Casos de uso.
-Arquitectura inicial.
-Diseño inicial de base de datos.
-Contrato inicial de API.
-Configuración del entorno.
-Git.
-GitHub.
-README inicial.
+Definición del producto, requisitos, casos de uso, arquitectura, diseño de base de datos y contrato de API (Docs/MUSA-001 a 006).
+Proyecto Spring Boot configurado (Java 21, MySQL, Maven).
+Backend: Categoria y Producto (CRUD completo).
+Backend: autenticación JWT (registro, login), roles CLIENTE/ADMIN, bootstrap del primer admin por variables de entorno.
+Backend: gestión de usuarios (ver perfil propio, listar usuarios, cambiar rol) — todo ADMIN salvo el perfil propio.
+Backend: Pedido, PedidoItem y Personalizacion completos (crear pedido como visitante o cliente, consultar pedido propio, "mis pedidos", panel admin de pedidos, actualizar estado).
+Backend: manejador global de excepciones (respuestas de error consistentes con mensaje real).
+Frontend: catálogo (con filtro por categoría), login/registro, detalle de producto con personalización, carrito, checkout, y envío del pedido a WhatsApp — el flujo completo Producto → Personalización → Carrito → Pedido → WhatsApp ya funciona de punta a punta.
+Paleta de colores de marca confirmada por la diseñadora (en frontend/css/variables.css).
 
-Siguiente etapa:
+Pendiente (siguiente etapa):
 
-Crear proyecto Spring Boot.
-Configurar Maven.
-Configurar MySQL.
-Crear estructura del backend.
-Implementar primer recurso de la API.
+Logo real y fuente "Clayful" (hoy son placeholders — ver frontend/assets/logo/ y frontend/assets/fonts/).
+Panel de administración con interfaz web (hoy la gestión de productos/categorías/pedidos/usuarios se hace por API directa).
+Vista de "mis pedidos" para el cliente en el frontend (el endpoint ya existe).
+ProductoImagen (fotos reales de producto), control de stock al crear un pedido, cálculo real de costo de envío, entidad Diseño.
+Pasarela de pagos (fuera de alcance del MVP, ver Docs).
+Aún no se ha hecho ningún commit del código de backend/frontend a Git — solo la documentación inicial está versionada.
