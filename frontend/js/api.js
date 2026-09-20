@@ -117,3 +117,11 @@ export function obtenerUsuariosAdmin() {
 export function cambiarRolUsuario(id, rol) {
   return solicitarConJson(`/usuarios/${id}/rol`, "PUT", { rol });
 }
+
+export function obtenerVentas(fechaDesde, fechaHasta) {
+  const parametros = new URLSearchParams();
+  if (fechaDesde) parametros.set("fechaDesde", fechaDesde);
+  if (fechaHasta) parametros.set("fechaHasta", fechaHasta);
+  const query = parametros.toString();
+  return solicitarAutenticadoSinCuerpo(`/admin/ventas${query ? `?${query}` : ""}`);
+}

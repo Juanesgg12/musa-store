@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ventas — Panel Musa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/formularios.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <p class="admin-sidebar__titulo">Musa Admin</p>
+      <a href="productos.html">Productos</a>
+      <a href="categorias.html">Categorías</a>
+      <a href="pedidos.html">Pedidos</a>
+      <a href="usuarios.html">Usuarios</a>
+      <a href="ventas.html" class="activa">Ventas</a>
+      <div class="admin-sidebar__separador"></div>
+      <a href="../index.html">Volver a la tienda</a>
+      <button type="button" id="btn-cerrar-sesion">Cerrar sesión</button>
+    </aside>
+
+    <main class="admin-contenido">
+      <div class="admin-encabezado">
+        <h1>Ventas</h1>
+      </div>
+
+      <div class="filtro-fechas">
+        <div class="campo">
+          <label for="fecha-desde">Desde</label>
+          <input type="date" id="fecha-desde" />
+        </div>
+        <div class="campo">
+          <label for="fecha-hasta">Hasta</label>
+          <input type="date" id="fecha-hasta" />
+        </div>
+        <button type="button" id="btn-filtrar" class="boton-primario">Filtrar</button>
+        <button type="button" id="btn-limpiar" class="boton-enlace">Ver todo el histórico</button>
+      </div>
+
+      <div id="mensaje-ventas"></div>
+
+      <div class="stats-grid">
+        <div class="stat-tile">
+          <p class="stat-tile__valor" id="stat-total-pedidos">—</p>
+          <p class="stat-tile__etiqueta">Total de pedidos</p>
+        </div>
+        <div class="stat-tile">
+          <p class="stat-tile__valor" id="stat-total-vendido">—</p>
+          <p class="stat-tile__etiqueta">Total vendido</p>
+        </div>
+      </div>
+
+      <div class="paneles-secundarios">
+        <div>
+          <h2 class="seccion__titulo">Pedidos por estado</h2>
+          <div class="admin-tabla-contenedor">
+            <table class="admin-tabla">
+              <thead>
+                <tr><th>Estado</th><th>Cantidad</th></tr>
+              </thead>
+              <tbody id="tabla-estados-cuerpo"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="seccion__titulo">Productos más vendidos</h2>
+          <div class="admin-tabla-contenedor">
+            <table class="admin-tabla">
+              <thead>
+                <tr><th>Producto</th><th>Unidades vendidas</th></tr>
+              </thead>
+              <tbody id="tabla-productos-vendidos-cuerpo"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../js/main-admin-ventas.js"></script>
+</body>
+</html>

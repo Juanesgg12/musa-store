@@ -111,6 +111,54 @@
   gap: var(--espacio-sm);
 }
 
+.filtro-fechas {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--espacio-md);
+  margin-bottom: var(--espacio-lg);
+}
+
+.filtro-fechas .campo {
+  margin-bottom: 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--espacio-md);
+  margin-bottom: var(--espacio-xl);
+}
+
+.stat-tile {
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  padding: var(--espacio-lg);
+  background-color: var(--color-fondo);
+}
+
+.stat-tile__valor {
+  font-family: var(--fuente-titulos);
+  font-size: 2rem;
+  color: var(--color-primario);
+}
+
+.stat-tile__etiqueta {
+  color: var(--color-texto-suave);
+  font-size: 0.85rem;
+}
+
+.paneles-secundarios {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-lg);
+}
+
+@media (max-width: 800px) {
+  .paneles-secundarios {
+    grid-template-columns: 1fr;
+  }
+}
+
 .admin-panel-formulario {
   display: none;
   border: 1px solid var(--color-borde);
